@@ -5,10 +5,10 @@ public class NearestTarget : MonoBehaviour
     public GameObject[] targets; // Array of target objects
     private GameObject nearestTarget;
 
-    void Update()
-    {
-        FindNearestTarget();
-    }
+    //void Update()
+    //{
+    //    FindNearestTarget();
+    //}
 
     void FindNearestTarget()
     {
