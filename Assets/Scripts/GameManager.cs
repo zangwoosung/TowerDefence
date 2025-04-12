@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,58 +5,75 @@ public class GameManager : MonoBehaviour
 
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
-    public Transform  world;
-
-    
-    public Enemy enemy;
-    public Turret turret;
+    public GameObject battleField;
    
+    public GameObject[] turretObj = new GameObject[5];
+    public GameObject[] enemyObj = new GameObject[5];
 
-    // Initialize  : Player and enemy 생성
-    // Prefare     :  설정 , UI 표시
-    // Begin game  : 사용자의 입력 
-
+    Enemy[] enemies = new Enemy[5];
+    Turret[] turrets = new Turret[5];
 
 
 
     void Start()
     {
-
-       
         Initialize();
+        Prefare();     
 
-
-        enemy.HP = UnityEngine.Random.Range(100, 150);
-        turret.HP = UnityEngine.Random.Range(100, 150);
-
-        enemy.ATK = UnityEngine.Random.Range(100, 150);
-        turret.ATK = UnityEngine.Random.Range(100, 150);
 
     }
     void Initialize()
     {
         for (int i = 0; i < 5; i++)
         {
-            int xPos = UnityEngine.Random.Range(2, 10);
-            int zPos = UnityEngine.Random.Range(2, 10);
-
-
+            int xPos = UnityEngine.Random.Range(-20, 20);
+            int zPos = UnityEngine.Random.Range(-20, 20);
             Vector3 pos = new Vector3(xPos, 0, zPos);
-            Instantiate(enemyPrefab, pos, Quaternion.identity).transform.SetParent(world);
+            GameObject obj = Instantiate(enemyPrefab, pos, Quaternion.identity);
+
+            obj.transform.position = pos;
+            obj.transform.SetParent(battleField.transform);
+            enemyObj[i] = obj;
+            enemies[i] = obj.GetComponent<Enemy>();
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            int xPos = UnityEngine.Random.Range(-20, 20);
+            int zPos = UnityEngine.Random.Range(-20, 20);
+            Vector3 pos = new Vector3(xPos, 0, zPos);
+            GameObject obj = Instantiate(turretPrefab, pos, Quaternion.identity);
+
+            obj.transform.position = pos;
+            obj.transform.SetParent(battleField.transform);
+            turretObj[i] = obj;
+            turrets[i] = obj.GetComponent<Turret>();
         }
     }
     void Prefare()
     {
-        enemy.HP = UnityEngine.Random.Range(100, 150);
-        turret.HP = UnityEngine.Random.Range(100, 150);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].HP = UnityEngine.Random.Range(100, 150);
+            enemies[i].ATK = UnityEngine.Random.Range(100, 150);
+            enemies[i].Prefare(turretObj);
+        }
 
-        enemy.ATK = UnityEngine.Random.Range(100, 150);
-        turret.ATK = UnityEngine.Random.Range(100, 150);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            turrets[i].HP = UnityEngine.Random.Range(100, 150);
+            turrets[i].ATK = UnityEngine.Random.Range(100, 150);
+            turrets[i].Prefare(enemyObj);
+        }
     }
 
     void BeginGame()
     {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].Begin();
+            //enemies[i].ATK = UnityEngine.Random.Range(100, 150);
 
+        }
     }
 
 

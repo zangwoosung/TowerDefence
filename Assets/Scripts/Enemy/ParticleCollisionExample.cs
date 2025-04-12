@@ -3,13 +3,13 @@ using UnityEngine;
 public class ParticleCollisionExample : MonoBehaviour
 {
     public ParticleSystem particleSystem; 
-
+    public LayerMask mask;  
     void Start()
     {
         var collision = particleSystem.collision;
         collision.enabled = true;
         collision.type = ParticleSystemCollisionType.World;
-        //collision.collidesWith = LayerMask.GetMask("Default");
+        collision.collidesWith = mask;// LayerMask.GetMask(mask);
     }
 
     void OnParticleCollision(GameObject other)

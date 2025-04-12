@@ -1,14 +1,39 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     public Transform gunbarrel;
-    public Transform NearlTarget=null;
     public static event Action OnDestroyEnemy;
+    public TextMeshProUGUI HPtxt;
+    public TextMeshProUGUI ATKtxt;
 
-    public int HP = 100;
-    public int ATK;
+    Transform NearlTarget=null;
+    private int hp;
+
+    public int HP
+    {
+        get { return hp; }
+        set { hp = value;
+
+            HPtxt.text = hp.ToString();
+        }
+    }
+
+    private int atk;
+
+    public int ATK
+    {
+        get { return atk; }
+        set { atk = value;
+
+            ATKtxt.text = atk.ToString();
+        }
+    }
+
+
+    
 
     [Header("PS")]
     public ParticleSystem MuzzelFlash_ParticleSystem;
@@ -17,7 +42,6 @@ public class Enemy : MonoBehaviour
 
     [Header("PS for Destroy")]
     public ParticleSystem Destroy_ParticleSystem;
-
 
     private void Awake()
     {
@@ -31,24 +55,24 @@ public class Enemy : MonoBehaviour
     {
         
     }
-    public void Prefare()
+    public void Prefare(GameObject[] targets)
     {
-
+        NearlTarget = NearestTarget.FindNearestTarget( gameObject, targets).transform;
     }
     public void Begin()
     {
+        MuzzelFlash_ParticleSystem.gameObject.SetActive(true);
         MuzzelFlash_ParticleSystem.Play();
         BulletShells_ParticleSystem.Play();
         Traser_ParticleSystem.Play();
     }
-    Transform FindTarget()
+    private void Update()
     {
+        if (NearlTarget == null) return;
 
-
-
-
-        return NearlTarget;
+        gunbarrel.LookAt(NearlTarget);
     }
+    
     public void CheckHP(int damage)
     {
         HP = HP - damage;
@@ -59,24 +83,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision bullet)
-    {
-        //CheckHP(10);
-        //Debug.Log("OnCollisionEnter!!!!!" + bullet.gameObject.name);
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //CheckHP(10);
-        //Debug.Log("OnTriggerEnter!!!!!" + other.name);
-    }
-    private void Update()
-    {
-        if (NearlTarget == null) return; 
-
-        gunbarrel.LookAt(NearlTarget);
-    }
+   
+    
 
 
 }

@@ -7,10 +7,9 @@ public class Turret : MonoBehaviour
     public        event Action NotStaticDestroyEvent;
     
     public Transform gunbarrel;
-    public Transform RealTarget;
-    public GatlingGun gatlingGun;
+    Transform NearTarget;
     
-    public UIManager _UIManager;
+    
     
     [Header("PS")]
     public ParticleSystem MuzzelFlash_ParticleSystem;
@@ -21,18 +20,28 @@ public class Turret : MonoBehaviour
     public ParticleSystem Destroy_ParticleSystem;     
 
    
-    public int HP;      // »ýÁ¸·Â,  HP
+    public int HP;      
     public int ATK;  
     int BulletCount = 5;
     float lapTime = 0;
 
-    private void Start()
+    private void Awake()
     {
-        Destroy_ParticleSystem.Stop();  
-        gatlingGun.enabled = false;
+        Destroy_ParticleSystem.Stop();
+        MuzzelFlash_ParticleSystem.Stop();
+        BulletShells_ParticleSystem.Stop();
+        Traser_ParticleSystem.Stop();
+    }
+    public void Initialize()
+    {
+      
         Invoke("DoSomething", 3);
     }
 
+    public void Prefare(GameObject[] targets)
+    {
+        NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
+    }
     void DoSomething()
     {
         MuzzelFlash_ParticleSystem.Play();
@@ -58,7 +67,11 @@ public class Turret : MonoBehaviour
             Fire();
             lapTime = 0;
         }
-        gunbarrel.LookAt(RealTarget);
+
+        if (NearTarget != null)
+        {
+            gunbarrel.LookAt(NearTarget);
+        }
     }
 
     public void Reload()
@@ -73,8 +86,8 @@ public class Turret : MonoBehaviour
 
     void Destroy()
     {  
-        transform.gameObject.SetActive(false);   // »ç¶óÁü.         
-        Destroy_ParticleSystem.Play();   
+        //transform.gameObject.SetActive(false);   // »ç¶óÁü.         
+        //Destroy_ParticleSystem.Play();   
        
     }
 

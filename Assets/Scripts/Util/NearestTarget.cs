@@ -31,14 +31,16 @@ public class NearestTarget : MonoBehaviour
             Debug.Log("Nearest Target: " + nearestTarget.name);
         }
     }
-    public GameObject  FindNearestTarget(GameObject[] targets)
+    public static GameObject  FindNearestTarget(GameObject selt, GameObject[] targets)
     {
+        GameObject nearestTarget;
+
         float closestDistance = Mathf.Infinity;
         nearestTarget = null;
 
         foreach (GameObject target in targets)
         {
-            float distance = Vector3.Distance(transform.position, target.transform.position);
+            float distance = Vector3.Distance(selt.transform.position, target.transform.position);
 
             if (distance < closestDistance)
             {
