@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -61,6 +62,7 @@ public class Enemy : MonoBehaviour
     }
     public void Begin()
     {
+        LoatAtTarget();
         MuzzelFlash_ParticleSystem.gameObject.SetActive(true);
         MuzzelFlash_ParticleSystem.Play();
         BulletShells_ParticleSystem.Play();
@@ -68,18 +70,42 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        if (NearlTarget == null) return;
-
+        if (NearlTarget == null)
+        {   FindNewTarget();
+            return;
+        }       
+    }
+    public void LoatAtTarget()
+    {
         gunbarrel.LookAt(NearlTarget);
     }
-    
+    private void FindNewTarget()
+    {
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        List<GameObject> targets = new List<GameObject>();
+
+        int enemyLayer = LayerMask.NameToLayer("Turret");
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.tag == "Turret")
+            {
+                targets.Add(obj);
+            }
+        }
+        if (targets.Count==0) return; 
+        Prefare(targets.ToArray());
+        LoatAtTarget();
+    }
+
     public void CheckHP(int damage)
     {
         HP = HP - damage;
         if (HP <= 0)
         {
             OnDestroyEnemy?.Invoke();
-            gameObject.SetActive(false);// Destroy(gameObject);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

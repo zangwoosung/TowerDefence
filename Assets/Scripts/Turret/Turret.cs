@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -52,9 +53,6 @@ public class Turret : MonoBehaviour
     int BulletCount = 5;
     float lapTime = 0;
    
-
-
-
     private void Awake()
     {
         Destroy_ParticleSystem.Stop();
@@ -63,8 +61,7 @@ public class Turret : MonoBehaviour
         Traser_ParticleSystem.Stop();
     }
     public void Initialize()
-    {
-      
+    {      
         Invoke("DoSomething", 3);
     }
     public void Begin()
@@ -75,12 +72,35 @@ public class Turret : MonoBehaviour
     {
         NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
     }
+    private void FindNewTarget()
+    {
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        List<GameObject> targets = new List<GameObject>();
+
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.tag == "Enemy")
+            {
+                targets.Add(obj);
+            }
+        }
+        if (targets.Count == 0) return;
+        Prefare(targets.ToArray());
+        LoatAtTarget();
+    }
+    public void LoatAtTarget()
+    {
+        gunbarrel.LookAt(NearTarget);
+    }
     void DoSomething()
     {
         MuzzelFlash_ParticleSystem.Play();
         BulletShells_ParticleSystem.Play();
         Traser_ParticleSystem.Play();
     }
+
     public void Fire()
     {
         if (BulletCount <= 0)
@@ -101,9 +121,10 @@ public class Turret : MonoBehaviour
             lapTime = 0;
         }
 
-        if (NearTarget != null)
+       
+        if (NearTarget == null)
         {
-            gunbarrel.LookAt(NearTarget);
+            FindNewTarget();
         }
     }
 
@@ -118,10 +139,10 @@ public class Turret : MonoBehaviour
     }
 
     void Destroy()
-    {  
-        //transform.gameObject.SetActive(false);   // »ç¶óÁü.         
-        //Destroy_ParticleSystem.Play();   
-       
+    {
+        StaticDestroyEvent?.Invoke();
+        transform.gameObject.SetActive(false);   // »ç¶óÁü.         
+        Destroy(gameObject);
     }
 
     public void TakeDamage(int damage)

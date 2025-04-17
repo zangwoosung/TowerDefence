@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI _TurrentAmount;  // UI에텍스트 필드.   
+    public TextMeshProUGUI _TurretAmount;  // UI에텍스트 필드.   
     public TextMeshProUGUI _EnemyAmount;  // UI에 텍스트 필드.
     
     public int TotalTurret=5;              //최초 터렛 갯수. 
@@ -24,13 +24,13 @@ public class UIManager : MonoBehaviour
         Enemy.OnDestroyEnemy += OneEnemyRemove;
 
         _EnemyAmount.text = TotalEnemy.ToString();
-        _TurrentAmount.text = TotalTurret.ToString();
+        _TurretAmount.text = TotalTurret.ToString();
     }
 
     public void OneTurretRemove()
     {
         TotalTurret = TotalTurret - 1; 
-        _TurrentAmount.text = TotalTurret.ToString();  
+        _TurretAmount.text = TotalTurret.ToString();  
     }
     public void OneEnemyRemove()
     {

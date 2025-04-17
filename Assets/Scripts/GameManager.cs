@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject battleField;
-   
+
     public GameObject[] turretObj = new GameObject[5];
     public GameObject[] enemyObj = new GameObject[5];
 
@@ -18,10 +19,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Initialize();
-        //Prefare();     
-
+       
 
     }
+
+    
+
     void Initialize()
     {
         for (int i = 0; i < 5; i++)
@@ -53,8 +56,8 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].HP = UnityEngine.Random.Range(100, 150);
-            enemies[i].ATK = UnityEngine.Random.Range(100, 150);
+            enemies[i].HP = Random.Range(100, 150);
+            enemies[i].ATK = Random.Range(100, 150);
             enemies[i].Prefare(turretObj);
         }
 
@@ -71,14 +74,14 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].Begin();
-            turrets[i].Begin();
-            //enemies[i].ATK = UnityEngine.Random.Range(100, 150);
+            turrets[i].Begin();          
 
         }
     }
-
+    
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             Prefare();
@@ -89,5 +92,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+
+    
 
 }

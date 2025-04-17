@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: NaN, g: NaN, b: NaN, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc1ced71ad8d1b4789d933bc2982437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TurrentAmount: {fileID: 770220436}
+  _TurretAmount: {fileID: 770220436}
   _EnemyAmount: {fileID: 349141427}
   TotalTurret: 5
   TotalEnemy: 5
@@ -885,7 +885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &478914584
 Transform:
   m_ObjectHideFlags: 0
@@ -2520,6 +2520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791573989743330687, guid: 28cc8e9e8b127004fa694ce8d89ffa91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
