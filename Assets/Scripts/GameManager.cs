@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Initialize();
-        Prefare();     
+        //Prefare();     
 
 
     }
@@ -71,12 +71,23 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].Begin();
+            turrets[i].Begin();
             //enemies[i].ATK = UnityEngine.Random.Range(100, 150);
 
         }
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Prefare();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            BeginGame();
+        }
+    }
 
 
 }

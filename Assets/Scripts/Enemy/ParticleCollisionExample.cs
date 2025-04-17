@@ -19,10 +19,10 @@ public class ParticleCollisionExample : MonoBehaviour
         // 적이 피격되었나를 어떻게 판단할까? 
         // 적이 피격 혹은 옆에 있는 건물이 피격 될 수도 있으니까.
         // 
-        if (other.GetComponent<Enemy>() != null)
+        if (other.GetComponent<Enemy>())
         {
             Debug.Log("Enemy hit");
-            other.GetComponent<Enemy>().CheckHP(1);
+            other.GetComponent<Enemy>().CheckHP(31);
         }
 
         if (other.GetComponent<Turret>())

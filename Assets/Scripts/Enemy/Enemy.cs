@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI HPtxt;
     public TextMeshProUGUI ATKtxt;
 
-    Transform NearlTarget=null;
+  [SerializeField]  Transform NearlTarget=null;
     private int hp;
 
     public int HP
@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
         if (HP <= 0)
         {
             OnDestroyEnemy?.Invoke();
-            Destroy(gameObject);
+            gameObject.SetActive(false);// Destroy(gameObject);
         }
     }
 

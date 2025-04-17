@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5613021200307137237}
   - component: {fileID: 4483857981153441592}
   - component: {fileID: 3123253667113065621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Barrel_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2928016331189143571}
   - component: {fileID: 4720948150340214563}
   - component: {fileID: 4301932329245744412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Arm_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +166,83 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &506630284266201943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5312365262076523535}
+  - component: {fileID: 8305173688256433299}
+  - component: {fileID: 9063514565941187456}
+  m_Layer: 3
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5312365262076523535
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506630284266201943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 619513470817483384}
+  - {fileID: 2226992259534432657}
+  m_Father: {fileID: 2298031219411692097}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -174}
+  m_SizeDelta: {x: 500, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8305173688256433299
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506630284266201943}
+  m_CullTransparentMesh: 1
+--- !u!114 &9063514565941187456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506630284266201943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300048, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &962263243083095354
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +254,7 @@ GameObject:
   - component: {fileID: 2172868786985930147}
   - component: {fileID: 7493091746157921590}
   - component: {fileID: 1515362112642587462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Base_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +337,7 @@ GameObject:
   - component: {fileID: 3217001788518975340}
   - component: {fileID: 638203931579127629}
   - component: {fileID: 2889544491802744879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Base_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +420,7 @@ GameObject:
   - component: {fileID: 8612634428860879959}
   - component: {fileID: 8208794269606776657}
   - component: {fileID: 3181791233643264123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_GunBody_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +503,7 @@ GameObject:
   - component: {fileID: 8612608424313614666}
   - component: {fileID: 5547899349492394398}
   - component: {fileID: 4526149331927076839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Arm_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +586,7 @@ GameObject:
   - component: {fileID: 8766818603031223387}
   - component: {fileID: 4381670106395042594}
   - component: {fileID: 1186937697164155740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletShells_ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5349,7 +5426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321076468421792155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5386,7 +5463,7 @@ GameObject:
   - component: {fileID: 8081680202091087493}
   - component: {fileID: 3185221365584296261}
   - component: {fileID: 8493962891294484584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Arm_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5469,7 +5546,7 @@ GameObject:
   - component: {fileID: 4552804359387954971}
   - component: {fileID: 7026099396948305135}
   - component: {fileID: 4516169448482900742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Base_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5552,7 +5629,7 @@ GameObject:
   - component: {fileID: 4478544876392168272}
   - component: {fileID: 4834828176396133365}
   - component: {fileID: 5615328940173479869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Barrel_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5635,7 +5712,7 @@ GameObject:
   - component: {fileID: 5972100659264296345}
   - component: {fileID: 7513932041273592516}
   - component: {fileID: 5871598887473325183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_BaseRotation_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5718,7 +5795,7 @@ GameObject:
   - component: {fileID: 3313218116926246614}
   - component: {fileID: 1311635156778551943}
   - component: {fileID: 3522309661771614349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_BaseRotation_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5802,7 +5879,7 @@ GameObject:
   - component: {fileID: 4977658223434495405}
   - component: {fileID: 237334766775271421}
   - component: {fileID: 7386892996611224939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Traser_ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9415,7 +9492,7 @@ ParticleSystem:
     serializedVersion: 4
     type: 1
     collisionMode: 0
-    colliderForce: 11
+    colliderForce: 100
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
@@ -9590,7 +9667,7 @@ ParticleSystem:
     radiusScale: 0.16
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -10661,7 +10738,7 @@ GameObject:
   - component: {fileID: 5866559838151823009}
   - component: {fileID: 5293876414084208028}
   - component: {fileID: 7641631443967649129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_GunBody_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10742,7 +10819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7910118767194279234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_GunBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10780,7 +10857,7 @@ GameObject:
   - component: {fileID: 5297344604303321327}
   - component: {fileID: 3934231694957024884}
   - component: {fileID: 557359661585051680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15611,6 +15688,242 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &6554393958943734251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2298031219411692097}
+  - component: {fileID: 494859321294911295}
+  - component: {fileID: 8444641815479402680}
+  - component: {fileID: 2708999084381797587}
+  m_Layer: 3
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2298031219411692097
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554393958943734251}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5312365262076523535}
+  m_Father: {fileID: 3550919026486271902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: 969.5, y: 228}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &494859321294911295
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554393958943734251}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &8444641815479402680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554393958943734251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!114 &2708999084381797587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554393958943734251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &6595225167146679087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 619513470817483384}
+  - component: {fileID: 5034207609523844529}
+  - component: {fileID: 5533438342055341505}
+  m_Layer: 3
+  m_Name: HP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &619513470817483384
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595225167146679087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5312365262076523535}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5034207609523844529
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595225167146679087}
+  m_CullTransparentMesh: 1
+--- !u!114 &5533438342055341505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595225167146679087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: HP:100
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278584838
+  m_fontColor: {r: 0.025157154, g: 0.023970494, b: 0.023970494, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6791573989743330687
 GameObject:
   m_ObjectHideFlags: 0
@@ -15625,7 +15938,7 @@ GameObject:
   - component: {fileID: 956118172648233052}
   - component: {fileID: 7924410666704099460}
   - component: {fileID: 3520271277117867756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15647,6 +15960,7 @@ Transform:
   m_Children:
   - {fileID: 2652420662476837017}
   - {fileID: 4582866610015595349}
+  - {fileID: 2298031219411692097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2728416187805725992
@@ -15682,13 +15996,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120d9087fc78db54bb9231239c590e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HPtxt: {fileID: 5533438342055341505}
+  ATKtxt: {fileID: 5195747590372457684}
   gunbarrel: {fileID: 7910118767194279234}
   MuzzelFlash_ParticleSystem: {fileID: 8389967989692617487}
   BulletShells_ParticleSystem: {fileID: 4381670106395042594}
   Traser_ParticleSystem: {fileID: 4977658223434495405}
   Destroy_ParticleSystem: {fileID: 4582866610029751829}
-  HP: 100
-  ATK: 0
 --- !u!205 &956118172648233052
 LODGroup:
   m_ObjectHideFlags: 0
@@ -15776,7 +16090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5540569896857761007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15801,6 +16115,140 @@ Transform:
   - {fileID: 4478544876392168272}
   m_Father: {fileID: 7910118767194279234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6991004276691741173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2226992259534432657}
+  - component: {fileID: 8799648200315212509}
+  - component: {fileID: 5195747590372457684}
+  m_Layer: 3
+  m_Name: ATK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2226992259534432657
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991004276691741173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5312365262076523535}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 63}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8799648200315212509
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991004276691741173}
+  m_CullTransparentMesh: 1
+--- !u!114 &5195747590372457684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991004276691741173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: ATK:100
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278584838
+  m_fontColor: {r: 0.025157154, g: 0.023970494, b: 0.023970494, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7043206654038722107
 GameObject:
   m_ObjectHideFlags: 0
@@ -15812,7 +16260,7 @@ GameObject:
   - component: {fileID: 1443529195657425413}
   - component: {fileID: 5820271445407613623}
   - component: {fileID: 617004287097393644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_BaseRotation_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15893,7 +16341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5707320953322720112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_BaseRotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15930,7 +16378,7 @@ GameObject:
   - component: {fileID: 6201051099762962494}
   - component: {fileID: 3092308374973328107}
   - component: {fileID: 8112154743189118126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Barrel_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16011,7 +16459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2652420662476837017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16048,7 +16496,7 @@ GameObject:
   - component: {fileID: 4046343265009938524}
   - component: {fileID: 8389967989692617487}
   - component: {fileID: 5034018822605967685}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuzzelFlash_ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20892,7 +21340,7 @@ GameObject:
   - component: {fileID: 5831954113500342812}
   - component: {fileID: 3990068043332906697}
   - component: {fileID: 7647587344948098937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GatelingGun_L3_GunBody_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20972,9 +21420,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3550919026486271902}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
       propertyPath: m_Name
       value: WFX_Nuke
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
       propertyPath: m_LocalPosition.x

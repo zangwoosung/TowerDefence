@@ -1,8 +1,12 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public TextMeshProUGUI HPtxt;
+    public TextMeshProUGUI ATKtxt;
+
     public static event Action StaticDestroyEvent;
     public        event Action NotStaticDestroyEvent;
     
@@ -17,13 +21,39 @@ public class Turret : MonoBehaviour
     public ParticleSystem Traser_ParticleSystem;
 
     [Header("PS Destroy")]
-    public ParticleSystem Destroy_ParticleSystem;     
+    public ParticleSystem Destroy_ParticleSystem;
 
-   
-    public int HP;      
-    public int ATK;  
+    private int hp;
+
+    public int HP
+    {
+        get { return hp; }
+        set
+        {
+            hp = value;
+
+            HPtxt.text = hp.ToString();
+        }
+    }
+
+    private int atk;
+
+    public int ATK
+    {
+        get { return atk; }
+        set
+        {
+            atk = value;
+
+            ATKtxt.text = atk.ToString();
+        }
+    }
+
     int BulletCount = 5;
     float lapTime = 0;
+   
+
+
 
     private void Awake()
     {
@@ -37,7 +67,10 @@ public class Turret : MonoBehaviour
       
         Invoke("DoSomething", 3);
     }
-
+    public void Begin()
+    {
+        DoSomething();
+    }
     public void Prefare(GameObject[] targets)
     {
         NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
