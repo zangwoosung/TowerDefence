@@ -12,7 +12,7 @@ public class Turret : MonoBehaviour
     public        event Action NotStaticDestroyEvent;
     
     public Transform gunbarrel;
-    Transform NearTarget;
+    public Transform NearTarget;
     
     
     
@@ -72,7 +72,7 @@ public class Turret : MonoBehaviour
     {
         NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
     }
-    private void FindNewTarget()
+    public  void FindNewTarget()
     {
         GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
         List<GameObject> targets = new List<GameObject>();
@@ -122,10 +122,10 @@ public class Turret : MonoBehaviour
         }
 
        
-        if (NearTarget == null)
-        {
-            FindNewTarget();
-        }
+        //if (NearTarget == null)
+        //{
+        //    FindNewTarget();
+        //}
     }
 
     public void Reload()

@@ -70,10 +70,10 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        if (NearlTarget == null)
-        {   FindNewTarget();
-            return;
-        }       
+        //if (NearlTarget == null)
+        //{   FindNewTarget();
+        //    return;
+        //}       
     }
     public void LoatAtTarget()
     {
