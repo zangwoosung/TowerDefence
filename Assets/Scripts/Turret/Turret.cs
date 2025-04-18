@@ -121,11 +121,11 @@ public class Turret : MonoBehaviour
             lapTime = 0;
         }
 
-       
-        //if (NearTarget == null)
-        //{
-        //    FindNewTarget();
-        //}
+
+        if (NearTarget == null)
+        {
+            FindNewTarget();
+        }
     }
 
     public void Reload()
