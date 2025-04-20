@@ -46,10 +46,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        Destroy_ParticleSystem.Stop();
-        MuzzelFlash_ParticleSystem.Stop();
-        BulletShells_ParticleSystem.Stop();
-        Traser_ParticleSystem.Stop();
+        CeaseFire();
     }
 
     public void Initialize()
@@ -108,6 +105,13 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
+    }
+    public void CeaseFire()
+    {
+        Destroy_ParticleSystem.Stop();
+        MuzzelFlash_ParticleSystem.Stop();
+        BulletShells_ParticleSystem.Stop();
+        Traser_ParticleSystem.Stop();
     }
 
    

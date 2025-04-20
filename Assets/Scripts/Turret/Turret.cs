@@ -144,7 +144,13 @@ public class Turret : MonoBehaviour
         transform.gameObject.SetActive(false);   // »ç¶óÁü.         
         Destroy(gameObject);
     }
-
+   public void CeaseFire()
+    {
+       // Destroy_ParticleSystem.Stop();
+        MuzzelFlash_ParticleSystem.Stop();
+        BulletShells_ParticleSystem.Stop();
+        Traser_ParticleSystem.Stop();
+    }
     public void TakeDamage(int damage)
     {
         HP = HP - damage;
