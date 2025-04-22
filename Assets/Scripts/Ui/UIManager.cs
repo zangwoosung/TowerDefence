@@ -59,7 +59,11 @@ public class UIManager : MonoBehaviour
     {
         TotalEnemy = 5;
         TotalTurret = 5;
+        _EnemyAmount.text = TotalEnemy.ToString();
+        _TurretAmount.text = TotalTurret.ToString();
+        _panelWinLose.gameObject.SetActive(false);
         OnGameAgainEvent?.Invoke();
+
 
 }
 

@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class BastItem : MonoBehaviour
 {
     public TextMeshProUGUI HPtxt;
     public TextMeshProUGUI ATKtxt;
-
-    public static event Action StaticDestroyEvent;
-    public        event Action NotStaticDestroyEvent;
-    
     public Transform gunbarrel;
     public Transform NearTarget;
-    
-    
-    
+
+
+
     [Header("PS")]
     public ParticleSystem MuzzelFlash_ParticleSystem;
     public ParticleSystem BulletShells_ParticleSystem;
@@ -23,6 +19,12 @@ public class Turret : MonoBehaviour
 
     [Header("PS Destroy")]
     public ParticleSystem Destroy_ParticleSystem;
+
+    public string TargetTag;
+
+    [field: SerializeField]
+    public string MyTag { get; set; }
+
 
     private int hp;
 
@@ -52,7 +54,7 @@ public class Turret : MonoBehaviour
 
     int BulletCount = 5;
     float lapTime = 0;
-   
+
     private void Awake()
     {
         Destroy_ParticleSystem.Stop();
@@ -61,7 +63,7 @@ public class Turret : MonoBehaviour
         Traser_ParticleSystem.Stop();
     }
     public void Initialize()
-    {      
+    {
         Invoke("DoSomething", 3);
     }
     public void Begin()
@@ -72,22 +74,12 @@ public class Turret : MonoBehaviour
     {
         NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
     }
-    public  void FindNewTarget()
+    public void FindNewTarget()
     {
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
-        List<GameObject> targets = new List<GameObject>();
-
-        int enemyLayer = LayerMask.NameToLayer("Enemy");
-
-        foreach (GameObject obj in allObjects)
-        {
-            if (obj.tag == "Enemy")
-            {
-                targets.Add(obj);
-            }
-        }
-        if (targets.Count == 0) return;
-        Prefare(targets.ToArray());
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(MyTag);
+        
+        if (targets.Length == 0) return;
+        Prefare(targets);
         LoatAtTarget();
     }
     public void LoatAtTarget()
@@ -110,13 +102,13 @@ public class Turret : MonoBehaviour
         }
         BulletCount--;
     }
-      
+
     private void Update()
     {
         lapTime += Time.deltaTime;  // 1초에 24실행, 0.22
 
-        if(lapTime > 1)
-        { 
+        if (lapTime > 1)
+        {
             Fire();
             lapTime = 0;
         }
@@ -138,15 +130,15 @@ public class Turret : MonoBehaviour
         Invoke("DoSomething", 3);
     }
 
-    void Destroy()
+    public virtual void Destroy()
     {
-        StaticDestroyEvent?.Invoke();
+      
         transform.gameObject.SetActive(false);   // 사라짐.         
         Destroy(gameObject);
     }
-   public void CeaseFire()
+    public void CeaseFire()
     {
-       // Destroy_ParticleSystem.Stop();
+        // Destroy_ParticleSystem.Stop();
         MuzzelFlash_ParticleSystem.Stop();
         BulletShells_ParticleSystem.Stop();
         Traser_ParticleSystem.Stop();
@@ -155,8 +147,20 @@ public class Turret : MonoBehaviour
     {
         HP = HP - damage;
 
-        if (HP <= 0)        
+        if (HP <= 0)
             Destroy();
+
+    }
+
+}
+public class Turret : BastItem
+{
+    public static event Action StaticDestroyEvent;
+
+    public override  void Destroy()
+    {
+        StaticDestroyEvent?.Invoke();
+        base.Destroy();
         
     }
 }
