@@ -15938,6 +15938,7 @@ GameObject:
   - component: {fileID: 956118172648233052}
   - component: {fileID: 7924410666704099460}
   - component: {fileID: 3520271277117867756}
+  - component: {fileID: 1490360168078446830}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Turret
@@ -15954,7 +15955,7 @@ Transform:
   m_GameObject: {fileID: 6791573989743330687}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.83, y: 0, z: 8}
+  m_LocalPosition: {x: -20.97, y: 0, z: 10.485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16084,6 +16085,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c8ad21ee6fe904dbd55f4031e3198a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1490360168078446830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791573989743330687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 7971731320263211402, guid: b0a451a055d81a34dbd59ffd2e5b4017,
+    type: 3}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 0
+  m_Duration: 1
+  m_MaxSpeed: 3.5708244
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1 &6819016504208318236
 GameObject:
   m_ObjectHideFlags: 0
