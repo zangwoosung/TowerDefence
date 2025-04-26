@@ -76,24 +76,21 @@ public class GameManager : MonoBehaviour
             obj.transform.position = pos;
             obj.transform.SetParent(battleField.transform);
             enemyObj[i] = obj;
-            enemyObj[i].AddComponent<SplineAnimate>();
-            enemyObj[i].AddComponent<SplineContainer>();
-            enemyObj[i].GetComponent<SplineContainer>().Spline = splineForEnem.Spline;
-            enemyObj[i].GetComponent<SplineAnimate>().Container.Spline= splineForEnem.Spline;
-            // enemies[i] = obj.GetComponent<Enemy>();
+           
+             enemies[i] = obj.GetComponent<Enemy>();
         }
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    int xPos = Random.Range(-20, 20);
-        //    int zPos = Random.Range(-20, 20);
-        //    Vector3 pos = new Vector3(xPos, 0, zPos);
-        //    GameObject obj = Instantiate(turretPrefab, pos, Quaternion.identity);
+        for (int i = 0; i < 5; i++)
+        {
+            int xPos = Random.Range(-20, 20);
+            int zPos = Random.Range(-20, 20);
+            Vector3 pos = new Vector3(xPos, 0, zPos);
+            GameObject obj = Instantiate(turretPrefab, pos, Quaternion.identity);
 
-        //    obj.transform.position = pos;
-        //    obj.transform.SetParent(battleField.transform);
-        //    turretObj[i] = obj;
-        //    turrets[i] = obj.GetComponent<Turret>();
-        //}
+            obj.transform.position = pos;
+            obj.transform.SetParent(battleField.transform);
+            turretObj[i] = obj;
+            turrets[i] = obj.GetComponent<Turret>();
+        }
     }
     void Prefare()
     {

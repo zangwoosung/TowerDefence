@@ -10723,7 +10723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c353ca3ffd41b64ba0c6841578347d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 4977658223434495405}
+  myps: {fileID: 4977658223434495405}
   mask:
     serializedVersion: 2
     m_Bits: 8
@@ -15996,16 +15996,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120d9087fc78db54bb9231239c590e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPtxt: {fileID: 5533438342055341505}
   ATKtxt: {fileID: 5195747590372457684}
   gunbarrel: {fileID: 7910118767194279234}
-  NearTarget: {fileID: 0}
+  HPtxt: {fileID: 5533438342055341505}
   MuzzelFlash_ParticleSystem: {fileID: 8389967989692617487}
   BulletShells_ParticleSystem: {fileID: 4381670106395042594}
   Traser_ParticleSystem: {fileID: 4977658223434495405}
-  Destroy_ParticleSystem: {fileID: 4582866610029751829}
-  TargetTag: Enemy
-  <MyTag>k__BackingField: Enemy
+  NearTarget: {fileID: 0}
+  targetTag: Enemy
 --- !u!205 &956118172648233052
 LODGroup:
   m_ObjectHideFlags: 0
@@ -21531,12 +21529,6 @@ PrefabInstance:
 --- !u!4 &4582866610015595349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 6ecf76dc4f268d340b2666896a954bcc,
-    type: 3}
-  m_PrefabInstance: {fileID: 4582866610015728087}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4582866610029751829 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19800002, guid: 6ecf76dc4f268d340b2666896a954bcc,
     type: 3}
   m_PrefabInstance: {fileID: 4582866610015728087}
   m_PrefabAsset: {fileID: 0}
