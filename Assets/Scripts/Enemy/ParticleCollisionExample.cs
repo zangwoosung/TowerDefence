@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class ParticleCollisionExample : MonoBehaviour
 {
-    public ParticleSystem particleSystem; 
+    public ParticleSystem myps; 
     public LayerMask mask;  
     void Start()
     {
-        var collision = particleSystem.collision;
+        var collision = myps.collision;
         collision.enabled = true;
         collision.type = ParticleSystemCollisionType.World;
         collision.collidesWith = mask;// LayerMask.GetMask(mask);
@@ -28,7 +28,7 @@ public class ParticleCollisionExample : MonoBehaviour
         if (other.GetComponent<Turret>())
         {
             Debug.Log("Turret hit");
-            other.GetComponent<Turret>().TakeDamage(1);
+            other.GetComponent<Turret>().CheckHP(1);
         }
     }
 }

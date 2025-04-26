@@ -133,21 +133,7 @@ public class GameManager : MonoBehaviour
         {
             BeginGame();
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-               
-                enemies[i].LoatAtTarget();
-                   // Prefare(turretObj);
-            }
-
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                turrets[i].LoatAtTarget();
-                //turrets[i].Prefare(enemyObj);
-            }
-        }
+       
     }
 
     

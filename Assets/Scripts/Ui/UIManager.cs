@@ -9,47 +9,45 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI _TurretAmount;  // UIø°≈ÿΩ∫∆Æ « µÂ.   
     public TextMeshProUGUI _EnemyAmount;  // UIø° ≈ÿΩ∫∆Æ « µÂ.
     public GameObject _panelMain;
-    public GameObject _panelWinLose; 
+    public GameObject _panelWinLose;
     public TextMeshProUGUI _winnerIs;
-    public int TotalTurret=5;              //√÷√  ≈Õ∑ø ∞πºˆ. 
-    public int TotalEnemy=5;              //√÷√  ≈Õ∑ø ∞πºˆ. 
+            //√÷√  ≈Õ∑ø ∞πºˆ. 
+   // public int TotalEnemy = 5;              //√÷√  ≈Õ∑ø ∞πºˆ. 
+
+    private int totalTurret;
+
+    public int TotalTurret
+    {
+        get { return totalTurret; }
+        set { totalTurret = value;
+
+            _TurretAmount.text = TotalTurret.ToString();
+        }
+    }
+    private int totalEnemy;
+
+    public int TotalEnemy
+    {
+        get { return totalEnemy; }
+        set { totalEnemy = value;
+
+            _EnemyAmount.text = TotalEnemy.ToString();
+            
+        }
+    }
 
 
-   
+
     void Start()
     {
         _panelWinLose.gameObject.SetActive(false);
-        Turret.StaticDestroyEvent += OneTurretRemove;
-        Enemy.OnDestroyEnemy += OneEnemyRemove;
+       
 
         _EnemyAmount.text = TotalEnemy.ToString();
         _TurretAmount.text = TotalTurret.ToString();
     }
 
-    public void OneTurretRemove()
-    {
-        TotalTurret = TotalTurret - 1; 
-        _TurretAmount.text = TotalTurret.ToString();
-        if (TotalTurret <= 0)
-        {
-            OnGameEndEvent?.Invoke();
-            _winnerIs.text = "Enemy win!";
-            _panelWinLose.gameObject.SetActive(true);
-            //_panelMain.gameObject.SetActive(false);
-        }
-    }
-    public void OneEnemyRemove()
-    {
-        TotalEnemy = TotalEnemy - 1;
-        _EnemyAmount.text = TotalEnemy.ToString();
-        if (TotalEnemy <= 0)
-        {
-            OnGameEndEvent?.Invoke();
-            _winnerIs.text = "Turret win!";
-            _panelWinLose.gameObject.SetActive(true);
-           // _panelMain.gameObject.SetActive(false); 
-}
-    }
+    
 
     public void Quit()
     {
@@ -65,6 +63,6 @@ public class UIManager : MonoBehaviour
         OnGameAgainEvent?.Invoke();
 
 
-}
+    }
 
 }
