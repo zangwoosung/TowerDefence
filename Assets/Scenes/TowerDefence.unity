@@ -956,7 +956,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  MainUI: {fileID: 93603571}
+  mainUI: {fileID: 93603571}
   splineForEnemyObj: {fileID: 0}
   splineForEnem: {fileID: 0}
 --- !u!1 &349141425

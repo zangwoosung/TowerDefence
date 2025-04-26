@@ -11,18 +11,37 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] turretObj = new GameObject[5];
     public GameObject[] enemyObj = new GameObject[5];
-
+    [SerializeField] UIManager mainUI;
     Enemy[] enemies = new Enemy[5];
     Turret[] turrets = new Turret[5];
 
     public GameObject  splineForEnemyObj;
     public SplineContainer         splineForEnem;
 
+    int TotalEnemy=5;
+    int TotalTurret = 5;
     void Start()
     {
+        mainUI.TotalEnemy = TotalEnemy;
+        mainUI.TotalTurret = TotalTurret;
+
+        Turret.StaticDestroyEvent += Turret_StaticDestroyEvent;
+        Enemy.OnDestroyEnemy += Enemy_OnDestroyEnemy;
         UIManager.OnGameEndEvent += UIManager_OnGameEndEvent;
         UIManager.OnGameAgainEvent += UIManager_OnGameAgainEvent;
         Initialize();
+    }
+
+    private void Enemy_OnDestroyEnemy()
+    {
+        TotalEnemy--;
+        mainUI.TotalEnemy = TotalEnemy;
+    }
+
+    private void Turret_StaticDestroyEvent()
+    {
+        TotalTurret--;
+        mainUI.TotalTurret = TotalTurret;
     }
 
     private void UIManager_OnGameAgainEvent()

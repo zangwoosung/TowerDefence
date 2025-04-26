@@ -5473,7 +5473,7 @@ MonoBehaviour:
   myps: {fileID: 7166714822283108853}
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &4287913685040850722
 GameObject:
   m_ObjectHideFlags: 0
