@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.15, y: 0.80999994, z: 0}
-  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
+  m_LocalScale: {x: 30.45, y: 30.45, z: 30.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,9 +79,9 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: -0.5
-        y: 0
-        z: 0.5
+        x: -0.29392445
+        y: -0.00032840297
+        z: 0.35796386
       TangentIn:
         x: 0
         y: 0
@@ -97,9 +97,9 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 0.5
-        y: 0
-        z: 0.5
+        x: 0.3763547
+        y: 0.0000000037252903
+        z: 0.36387518
       TangentIn:
         x: 0
         y: 0
@@ -115,9 +115,9 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 0.5
-        y: 0
-        z: -0.5
+        x: 0.41215104
+        y: -0.00032840297
+        z: -0.4137931
       TangentIn:
         x: 0
         y: 0

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static event Action OnGameEndEvent;
-    public static event Action OnGameAgainEvent;
+    public  event Action OnGameEndEvent;
+    public  event Action OnGameAgainEvent;
     public TextMeshProUGUI _TurretAmount;  // UI에텍스트 필드.   
     public TextMeshProUGUI _EnemyAmount;  // UI에 텍스트 필드.
     public GameObject _panelMain;
     public GameObject _panelWinLose;
-    public TextMeshProUGUI _winnerIs;
-            //최초 터렛 갯수. 
-   // public int TotalEnemy = 5;              //최초 터렛 갯수. 
+    public TextMeshProUGUI _winnerIs;          
 
     private int totalTurret;
 
@@ -41,28 +39,22 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _panelWinLose.gameObject.SetActive(false);
-       
-
-        _EnemyAmount.text = TotalEnemy.ToString();
-        _TurretAmount.text = TotalTurret.ToString();
     }
 
-    
+    public void ShowWinLosePanel(string winner)
+    {
+        _winnerIs.text = winner;
+        _panelWinLose.gameObject.SetActive(true);
+    }
 
     public void Quit()
     {
         Application.Quit();
     }
     public void Again()
-    {
-        TotalEnemy = 5;
-        TotalTurret = 5;
-        _EnemyAmount.text = TotalEnemy.ToString();
-        _TurretAmount.text = TotalTurret.ToString();
+    {       
         _panelWinLose.gameObject.SetActive(false);
         OnGameAgainEvent?.Invoke();
-
-
     }
 
 }

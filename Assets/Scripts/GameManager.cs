@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -15,49 +16,67 @@ public class GameManager : MonoBehaviour
     Enemy[] enemies = new Enemy[5];
     Turret[] turrets = new Turret[5];
 
-    public GameObject  splineForEnemyObj;
-    public SplineContainer         splineForEnem;
+    public GameObject splineForEnemyObj;
+    public SplineContainer splineForEnem;
 
-    int TotalEnemy=5;
-    int TotalTurret = 5;
+    int TotalEnemy;
+    int TotalTurret;
     void Start()
     {
-        mainUI.TotalEnemy = TotalEnemy;
-        mainUI.TotalTurret = TotalTurret;
-
         Turret.StaticDestroyEvent += Turret_StaticDestroyEvent;
         Enemy.OnDestroyEnemy += Enemy_OnDestroyEnemy;
-        UIManager.OnGameEndEvent += UIManager_OnGameEndEvent;
-        UIManager.OnGameAgainEvent += UIManager_OnGameAgainEvent;
-        Initialize();
+        mainUI.OnGameEndEvent += UIManager_OnGameEndEvent;
+        mainUI.OnGameAgainEvent += UIManager_OnGameAgainEvent;
+
+
+        TotalEnemy = 5;
+        TotalTurret = 5;
+        mainUI.TotalEnemy = TotalEnemy;
+        mainUI.TotalTurret = TotalTurret;
+     StartCoroutine(Initialize());
+        //Prefare();
     }
 
     private void Enemy_OnDestroyEnemy()
     {
         TotalEnemy--;
         mainUI.TotalEnemy = TotalEnemy;
+        if (TotalEnemy <= 0)
+        {
+            mainUI.ShowWinLosePanel("Turret");
+
+        }
     }
 
     private void Turret_StaticDestroyEvent()
     {
         TotalTurret--;
         mainUI.TotalTurret = TotalTurret;
+        if (TotalTurret <= 0)
+        {
+            mainUI.ShowWinLosePanel("Enemy");
+
+        }
     }
 
     private void UIManager_OnGameAgainEvent()
     {
         ClearBattleField();
-        Initialize();
+
+        TotalEnemy = 5;
+        TotalTurret = 5;
+        mainUI.TotalEnemy = TotalEnemy;
+        mainUI.TotalTurret = TotalTurret;
+        StartCoroutine(Initialize());
+        Prefare();
     }
 
     void ClearBattleField()
     {
         int numChildren = battleField.transform.childCount;
         for (int i = numChildren - 1; i > 0; i--)
-        {
             GameObject.Destroy(battleField.transform.GetChild(i).gameObject);
-        }
-       
+
     }
 
     void CeaseFire()
@@ -76,14 +95,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   
+
     private void UIManager_OnGameEndEvent()
     {
         CeaseFire();
         ClearBattleField();
     }
 
-    void Initialize()
+    IEnumerator Initialize()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -95,8 +114,9 @@ public class GameManager : MonoBehaviour
             obj.transform.position = pos;
             obj.transform.SetParent(battleField.transform);
             enemyObj[i] = obj;
-           
-             enemies[i] = obj.GetComponent<Enemy>();
+            enemies[i] = obj.GetComponent<Enemy>();
+            obj.GetComponent<SplineAnimate>().StartOffset = Random.Range(0, 1);
+            yield return new WaitForSeconds(0.5f);
         }
         for (int i = 0; i < 5; i++)
         {
@@ -128,32 +148,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void BeginGame()
+    public void StartGame()
     {
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            enemies[i].Begin();
-            turrets[i].Begin();    
-
-        }
-    }
-    
-    private void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Prefare();
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            BeginGame();
-        }
-       
+        
     }
 
-    
 
-    
 
 }

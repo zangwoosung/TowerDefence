@@ -1,19 +1,26 @@
 ﻿using TMPro;
 using UnityEngine;
 
+public enum ItemType
+{
+    Enemy=0,
+    Turret
+
+}
 public class BaseItem :MonoBehaviour
 {
      public TextMeshProUGUI ATKtxt;
-     public Transform gunbarrel;
      public TextMeshProUGUI HPtxt;
+     public Transform gunbarrel;
 
     [Header("PS")]
      public ParticleSystem MuzzelFlash_ParticleSystem;
      public ParticleSystem BulletShells_ParticleSystem;
      public ParticleSystem Traser_ParticleSystem;
 
-    [SerializeField] public    Transform NearTarget = null;
-    [SerializeField] public    string targetTag;
+     Transform NearTarget = null;
+    [SerializeField] string targetTag;
+    [SerializeField] ItemType targetType;
 
     private int hp;
     public int HP
@@ -63,7 +70,7 @@ public class BaseItem :MonoBehaviour
     }
     void OpenFire()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetType.ToString());
         if (targets.Length == 0) return;
 
 
