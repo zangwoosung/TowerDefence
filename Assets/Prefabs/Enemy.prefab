@@ -5639,7 +5639,7 @@ MonoBehaviour:
   m_Duration: 15
   m_MaxSpeed: 43.43043
   m_EasingMode: 3
-  m_AlignmentMode: 3
+  m_AlignmentMode: 0
   m_ObjectForwardAxis: 2
   m_ObjectUpAxis: 1
   m_StartOffset: 1
@@ -10687,7 +10687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5022999568970781712
 Transform:
   m_ObjectHideFlags: 0

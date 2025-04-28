@@ -16002,6 +16002,7 @@ MonoBehaviour:
   BulletShells_ParticleSystem: {fileID: 4381670106395042594}
   Traser_ParticleSystem: {fileID: 4977658223434495405}
   targetTag: Enemy
+  targetType: 0
 --- !u!205 &956118172648233052
 LODGroup:
   m_ObjectHideFlags: 0
@@ -16501,7 +16502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4046343265009938524
 Transform:
   m_ObjectHideFlags: 0

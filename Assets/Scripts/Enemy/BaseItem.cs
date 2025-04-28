@@ -53,7 +53,7 @@ public class BaseItem :MonoBehaviour
     }
     private void Start()
     {
-      //  Begin();
+      
 
     }
     public void Initialize()
@@ -91,6 +91,12 @@ public class BaseItem :MonoBehaviour
         Traser_ParticleSystem.Stop();
         Invoke("OpenFire", 3);
 
+    }
+    public void HodeFire()
+    {
+        MuzzelFlash_ParticleSystem.Stop();
+        BulletShells_ParticleSystem.Stop();
+        Traser_ParticleSystem.Stop();
     }
 
     private void Update()
