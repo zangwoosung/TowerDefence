@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     Enemy[] enemies = new Enemy[5];
     Turret[] turrets = new Turret[5];
 
-    public GameObject splineForEnemyObj;
-    public SplineContainer splineForEnem;
+    
 
     int TotalEnemy;
     int TotalTurret;
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
         TotalTurret = 5;
         mainUI.TotalEnemy = TotalEnemy;
         mainUI.TotalTurret = TotalTurret;
-     StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
         //Prefare();
     }
 
@@ -114,7 +113,9 @@ public class GameManager : MonoBehaviour
             obj.transform.position = pos;
             obj.transform.SetParent(battleField.transform);
             enemyObj[i] = obj;
+            //obj.GetComponent<Enemy>().enabled=false;
             enemies[i] = obj.GetComponent<Enemy>();
+
             obj.GetComponent<SplineAnimate>().StartOffset = Random.Range(0, 1);
             yield return new WaitForSeconds(0.5f);
         }
@@ -135,16 +136,18 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].HP = Random.Range(100, 150);
+            enemies[i].HP = Random.Range(10000, 15000);
             enemies[i].ATK = Random.Range(100, 150);
             enemies[i].Prefare(turretObj);
+            enemies[i].HodeFire();
         }
 
         for (int i = 0; i < enemies.Length; i++)
         {
-            turrets[i].HP = Random.Range(100, 150);
+            turrets[i].HP = Random.Range(10000, 15000);
             turrets[i].ATK = Random.Range(100, 150);
             turrets[i].Prefare(enemyObj);
+            turrets[i].HodeFire();
         }
     }
 
