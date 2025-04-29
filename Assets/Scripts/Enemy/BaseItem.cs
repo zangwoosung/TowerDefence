@@ -2,9 +2,9 @@
 using UnityEngine;
 
 public enum ItemType
-{
-    Enemy=0,
-    Turret
+{   
+    Enemy=1,
+    Turret=2
 
 }
 public class BaseItem :MonoBehaviour
@@ -19,7 +19,7 @@ public class BaseItem :MonoBehaviour
      public ParticleSystem Traser_ParticleSystem;
 
      Transform NearTarget = null;
-    [SerializeField] string targetTag;
+   
     [SerializeField] ItemType targetType;
 
     private int hp;
@@ -62,10 +62,14 @@ public class BaseItem :MonoBehaviour
     }
     public void Prefare(GameObject[] targets)
     {
-        //NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
+        
     }
     public void Begin()
-    {       
+    {
+        MuzzelFlash_ParticleSystem.gameObject.SetActive(true);
+        BulletShells_ParticleSystem.gameObject.SetActive(true); 
+        Traser_ParticleSystem.gameObject.SetActive(true); 
+
         OpenFire();
     }
     void OpenFire()
