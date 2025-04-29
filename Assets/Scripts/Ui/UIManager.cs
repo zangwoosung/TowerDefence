@@ -1,15 +1,20 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public  event Action OnGameEndEvent;
     public  event Action OnGameAgainEvent;
+    
+    public GameObject _panelWinLose;
+    public GameObject _panelMain;
+
+    public Button _StarBtn;
+
     public TextMeshProUGUI _TurretAmount;  // UI에텍스트 필드.   
     public TextMeshProUGUI _EnemyAmount;  // UI에 텍스트 필드.
-    public GameObject _panelMain;
-    public GameObject _panelWinLose;
     public TextMeshProUGUI _winnerIs;          
 
     private int totalTurret;
@@ -33,11 +38,9 @@ public class UIManager : MonoBehaviour
             
         }
     }
-
-
-
     void Start()
     {
+        _StarBtn.gameObject.SetActive(false);
         _panelWinLose.gameObject.SetActive(false);
     }
 
@@ -46,7 +49,10 @@ public class UIManager : MonoBehaviour
         _winnerIs.text = winner;
         _panelWinLose.gameObject.SetActive(true);
     }
-
+    public void ShowStartBtn(bool boo)
+    {
+        _StarBtn.gameObject.SetActive(boo);
+    }
     public void Quit()
     {
         Application.Quit();

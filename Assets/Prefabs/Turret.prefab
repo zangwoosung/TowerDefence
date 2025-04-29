@@ -10727,6 +10727,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 8
+  baseItem: {fileID: 2551483968928519674}
 --- !u!1 &5545178059464517336
 GameObject:
   m_ObjectHideFlags: 0
@@ -16002,7 +16003,7 @@ MonoBehaviour:
   BulletShells_ParticleSystem: {fileID: 4381670106395042594}
   Traser_ParticleSystem: {fileID: 4977658223434495405}
   targetTag: Enemy
-  targetType: 0
+  targetType: 1
 --- !u!205 &956118172648233052
 LODGroup:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     
 
+
     int TotalEnemy;
     int TotalTurret;
     void Start()
@@ -31,9 +32,9 @@ public class GameManager : MonoBehaviour
         TotalEnemy = 5;
         TotalTurret = 5;
         mainUI.TotalEnemy = TotalEnemy;
-        mainUI.TotalTurret = TotalTurret;
+        mainUI.TotalTurret = TotalTurret;        
         StartCoroutine(Initialize());
-        //Prefare();
+        
     }
 
     private void Enemy_OnDestroyEnemy()
@@ -41,9 +42,8 @@ public class GameManager : MonoBehaviour
         TotalEnemy--;
         mainUI.TotalEnemy = TotalEnemy;
         if (TotalEnemy <= 0)
-        {
-            mainUI.ShowWinLosePanel("Turret");
-
+        {            
+            mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
         }
     }
 
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         mainUI.TotalTurret = TotalTurret;
         if (TotalTurret <= 0)
         {
-            mainUI.ShowWinLosePanel("Enemy");
+            mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
 
         }
     }
@@ -61,13 +61,9 @@ public class GameManager : MonoBehaviour
     private void UIManager_OnGameAgainEvent()
     {
         ClearBattleField();
-
-        TotalEnemy = 5;
-        TotalTurret = 5;
-        mainUI.TotalEnemy = TotalEnemy;
-        mainUI.TotalTurret = TotalTurret;
+        
         StartCoroutine(Initialize());
-        Prefare();
+     
     }
 
     void ClearBattleField()
@@ -80,18 +76,22 @@ public class GameManager : MonoBehaviour
 
     void CeaseFire()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach (GameObject enemy in targets)
+        int numChildren = battleField.transform.childCount;
+        for (int i = numChildren - 1; i > 0; i--)
         {
-            enemy.GetComponent<Enemy>().CeaseFire();
+            GameObject obj = battleField.transform.GetChild(i).gameObject;
+            if(obj.GetComponent<BaseItem>() != null)
+            {
+                obj.GetComponent<BaseItem>().CeaseFire();
+                Debug.Log("cease fire");
+            }
+            else
+            {
+                Debug.Log("cease fire AAAAAAAAAAA");
+            }
         }
 
-        targets = GameObject.FindGameObjectsWithTag("Turret");
-        foreach (GameObject obj in targets)
-        {
-            obj.GetComponent<Turret>().CeaseFire();
-        }
+
     }
 
 
@@ -103,6 +103,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Initialize()
     {
+        TotalEnemy = 5;
+        TotalTurret = 5;
+        mainUI.TotalEnemy = TotalEnemy;
+        mainUI.TotalTurret = TotalTurret;
+
         for (int i = 0; i < 5; i++)
         {
             int xPos = Random.Range(-20, 20);
@@ -112,12 +117,11 @@ public class GameManager : MonoBehaviour
 
             obj.transform.position = pos;
             obj.transform.SetParent(battleField.transform);
-            enemyObj[i] = obj;
-            //obj.GetComponent<Enemy>().enabled=false;
+            enemyObj[i] = obj;            
             enemies[i] = obj.GetComponent<Enemy>();
 
-            obj.GetComponent<SplineAnimate>().StartOffset = Random.Range(0, 1);
-            yield return new WaitForSeconds(0.5f);
+            obj.GetComponent<SplineAnimate>().StartOffset = Random.Range(0.0f, 1.0f);
+            yield return new WaitForSeconds(1.5f);
         }
         for (int i = 0; i < 5; i++)
         {
@@ -131,31 +135,28 @@ public class GameManager : MonoBehaviour
             turretObj[i] = obj;
             turrets[i] = obj.GetComponent<Turret>();
         }
+        Prefare();
     }
     void Prefare()
     {
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].HP = Random.Range(10000, 15000);
-            enemies[i].ATK = Random.Range(100, 150);
-            enemies[i].Prefare(turretObj);
-            enemies[i].HodeFire();
+            enemies[i].HP = Random.Range(1000, 1500);
+            enemies[i].ATK = Random.Range(100, 150);         
+            
+            turrets[i].HP = Random.Range(10000, 15000);
+            turrets[i].ATK = Random.Range(100, 150);                    
         }
 
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            turrets[i].HP = Random.Range(10000, 15000);
-            turrets[i].ATK = Random.Range(100, 150);
-            turrets[i].Prefare(enemyObj);
-            turrets[i].HodeFire();
-        }
+        mainUI.ShowStartBtn(true);
     }
 
     public void StartGame()
     {
-        
+        for (int i = 0; i < enemies.Length; i++)
+        {            
+            turrets[i].Begin();
+            enemies[i].Begin();
+        }
     }
-
-
-
 }

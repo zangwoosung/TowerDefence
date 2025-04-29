@@ -3,7 +3,10 @@ using UnityEngine;
 public class ParticleCollisionExample : MonoBehaviour
 {
     public ParticleSystem myps; 
-    public LayerMask mask;  
+    public LayerMask mask;
+
+    [SerializeField] BaseItem baseItem;
+
     void Start()
     {
         var collision = myps.collision;
@@ -13,22 +16,12 @@ public class ParticleCollisionExample : MonoBehaviour
     }
 
     void OnParticleCollision(GameObject other)
-    {
-        
-
-        // 적이 피격되었나를 어떻게 판단할까? 
-        // 적이 피격 혹은 옆에 있는 건물이 피격 될 수도 있으니까.
-        // 
-        if (other.GetComponent<Enemy>())
+    {   
+        if (other.GetComponent<BaseItem>())
         {
             Debug.Log("Enemy hit");
-            other.GetComponent<Enemy>().CheckHP(1);
+            other.GetComponent<BaseItem>().CheckHP(baseItem.ATK);
         }
 
-        if (other.GetComponent<Turret>())
-        {
-            Debug.Log("Turret hit");
-            other.GetComponent<Turret>().CheckHP(1);
-        }
     }
 }
