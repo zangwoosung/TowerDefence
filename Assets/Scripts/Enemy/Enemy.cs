@@ -11,6 +11,7 @@ public class Enemy : BaseItem
         HP = HP - damage;
         if (HP <= 0)
         {
+            Debug.Log("checkHP " + damage);
             OnDestroyEnemy?.Invoke();
             OnDestroyEnemyPos?.Invoke(transform.position);
             gameObject.SetActive(false);

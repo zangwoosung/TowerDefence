@@ -2,31 +2,33 @@ using UnityEngine;
 
 public class Drag3D : MonoBehaviour
 {
-    private Vector3 offset;
-    private float zCoord;
+    private Camera cam;
+    private bool isDragging = false;
+    private float distanceToCamera;
+
+    void Start()
+    {
+        cam = Camera.main;
+    }
 
     void OnMouseDown()
     {
-        zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
-        offset = transform.position - GetMouseWorldPos();
-    }
-    private void OnMouseUp()
-    {
-        transform.position = GetMouseWorldPos() + offset;
+        isDragging = true;
+        distanceToCamera = Vector3.Distance(transform.position, cam.transform.position);
     }
 
-    void OnMouseDrag()
+    void OnMouseUp()
     {
-        
-
-        transform.position = GetMouseWorldPos() + offset;
+        isDragging = false;
     }
 
-    private Vector3 GetMouseWorldPos()
+    void Update()
     {
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = zCoord;
-        
-        return Camera.main.ScreenToWorldPoint(mousePoint);
+        if (isDragging)
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 newPos = ray.GetPoint(distanceToCamera);
+            transform.position = newPos;
+        }
     }
 }
