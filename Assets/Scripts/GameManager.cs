@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-
+    
     public GameObject enemyPrefab;
     public GameObject turretPrefab;
     public GameObject battleField;
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     Enemy[] enemies = new Enemy[5];
     Turret[] turrets = new Turret[5];
 
+
     
 
 
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     int TotalTurret;
     void Start()
     {
+        BaseItem.OnGameOverEvent += BaseItem_OnGameOverEvent;
         Turret.StaticDestroyEvent += Turret_StaticDestroyEvent;
         Enemy.OnDestroyEnemy += Enemy_OnDestroyEnemy;
         mainUI.OnGameEndEvent += UIManager_OnGameEndEvent;
@@ -37,25 +41,34 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private void BaseItem_OnGameOverEvent(ItemType obj)
+    {
+        //CeaseFire();
+        //switch (obj)
+        //{
+        //    case ItemType.Enemy:
+        //        mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
+        //        break;
+        //    case ItemType.Turret:
+        //        mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
+        //        break;
+        //    default:
+        //        break;
+        //}
+       
+    }
+
     private void Enemy_OnDestroyEnemy()
     {
         TotalEnemy--;
         mainUI.TotalEnemy = TotalEnemy;
-        if (TotalEnemy <= 0)
-        {            
-            mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
-        }
+        
     }
 
     private void Turret_StaticDestroyEvent()
     {
         TotalTurret--;
-        mainUI.TotalTurret = TotalTurret;
-        if (TotalTurret <= 0)
-        {
-            mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
-
-        }
+        mainUI.TotalTurret = TotalTurret;        
     }
 
     private void UIManager_OnGameAgainEvent()
@@ -83,12 +96,9 @@ public class GameManager : MonoBehaviour
             if(obj.GetComponent<BaseItem>() != null)
             {
                 obj.GetComponent<BaseItem>().CeaseFire();
-                Debug.Log("cease fire");
+                
             }
-            else
-            {
-                Debug.Log("cease fire AAAAAAAAAAA");
-            }
+            
         }
 
 

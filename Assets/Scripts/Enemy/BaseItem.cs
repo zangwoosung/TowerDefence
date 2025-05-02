@@ -1,25 +1,26 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 public enum ItemType
-{   
-    Enemy=1,
-    Turret=2
+{
+    Enemy,
+    Turret
 
 }
-public class BaseItem :MonoBehaviour
+public class BaseItem : MonoBehaviour
 {
-     public TextMeshProUGUI ATKtxt;
-     public TextMeshProUGUI HPtxt;
-     public Transform gunbarrel;
+    public TextMeshProUGUI ATKtxt;
+    public TextMeshProUGUI HPtxt;
+    public Transform gunbarrel;
 
     [Header("PS")]
-     public ParticleSystem MuzzelFlash_ParticleSystem;
-     public ParticleSystem BulletShells_ParticleSystem;
-     public ParticleSystem Traser_ParticleSystem;
+    public ParticleSystem MuzzelFlash_ParticleSystem;
+    public ParticleSystem BulletShells_ParticleSystem;
+    public ParticleSystem Traser_ParticleSystem;
 
-     Transform NearTarget = null;
-   
+    Transform NearTarget = null;
+
     [SerializeField] ItemType targetType;
 
     private int hp;
@@ -53,7 +54,7 @@ public class BaseItem :MonoBehaviour
     }
     private void Start()
     {
-      
+
 
     }
     public void Initialize()
@@ -62,37 +63,42 @@ public class BaseItem :MonoBehaviour
     }
     public void Prefare(GameObject[] targets)
     {
-        
+
     }
     public void Begin()
     {
         MuzzelFlash_ParticleSystem.gameObject.SetActive(true);
-        BulletShells_ParticleSystem.gameObject.SetActive(true); 
-        Traser_ParticleSystem.gameObject.SetActive(true); 
+        BulletShells_ParticleSystem.gameObject.SetActive(true);
+        Traser_ParticleSystem.gameObject.SetActive(true);
 
         OpenFire();
     }
+    public static event Action<ItemType> OnGameOverEvent;
     void OpenFire()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag(targetType.ToString());
-        if (targets.Length == 0) return;
+        if (targets.Length == 0)
+        {
+            
+            NearTarget =null;
+            return;
+        }
 
 
         NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
-
-        if (NearTarget==null) return;
+        gunbarrel.LookAt(NearTarget);
+        
 
         MuzzelFlash_ParticleSystem.Play();
-
         BulletShells_ParticleSystem.Play();
         Traser_ParticleSystem.Play();
         Invoke("CeaseFire", 5);
     }
-   public void CeaseFire()
+    public void CeaseFire()
     {
-        MuzzelFlash_ParticleSystem.Stop();
-        BulletShells_ParticleSystem.Stop();
         Traser_ParticleSystem.Stop();
+        BulletShells_ParticleSystem.Stop();
+        MuzzelFlash_ParticleSystem.Stop();
         Invoke("OpenFire", 3);
 
     }
@@ -105,20 +111,25 @@ public class BaseItem :MonoBehaviour
 
     private void Update()
     {
-        if (NearTarget == null) return;
+        if (NearTarget == null)
+        {
+
+            return;
+
+        }
         gunbarrel.LookAt(NearTarget);
     }
-    
-    public  virtual void CheckHP(int damage)
+
+    public virtual void CheckHP(int damage)
     {
-        
+
     }
     public virtual void Explode()
     {
 
         gameObject.SetActive(false);
         Destroy(gameObject);
-        
+
     }
 
 }

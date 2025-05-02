@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+
     public  event Action OnGameEndEvent;
     public  event Action OnGameAgainEvent;
     

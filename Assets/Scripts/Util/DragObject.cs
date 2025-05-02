@@ -1,12 +1,18 @@
 
+using System;
 using UnityEngine;
 
 public class DragObject : MonoBehaviour
 {
+
+    public static event Action<Turret> OnTurretDownEvent;
+    public static event Action         OnTurretUpEvent;
+
+    [SerializeField] Turret turret;
     private Camera cam;
     private bool isDragging = false;
     private float zCoord;
-    public LayerMask floorLayer; // Assign this to your floor layer in the inspector
+    public LayerMask floorLayer; 
 
     void Start()
     {
@@ -17,6 +23,7 @@ public class DragObject : MonoBehaviour
     {
         isDragging = true;
         zCoord = cam.WorldToScreenPoint(transform.position).z;
+        OnTurretDownEvent?.Invoke(turret);
     }
 
     void OnMouseDrag()
@@ -40,5 +47,6 @@ public class DragObject : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
+        OnTurretUpEvent?.Invoke();
     }
 }

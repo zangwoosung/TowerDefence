@@ -5591,8 +5591,7 @@ MonoBehaviour:
   MuzzelFlash_ParticleSystem: {fileID: 6618261652683424640}
   BulletShells_ParticleSystem: {fileID: 1504640040294533490}
   Traser_ParticleSystem: {fileID: 7166714822283108853}
-  targetTag: Turret
-  targetType: 2
+  targetType: 1
 --- !u!54 &233374248043911764
 Rigidbody:
   m_ObjectHideFlags: 0

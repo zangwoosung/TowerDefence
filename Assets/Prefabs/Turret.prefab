@@ -15938,7 +15938,7 @@ GameObject:
   - component: {fileID: 2551483968928519674}
   - component: {fileID: 956118172648233052}
   - component: {fileID: 7924410666704099460}
-  - component: {fileID: 3520271277117867756}
+  - component: {fileID: -3904096996074198781}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Turret
@@ -16002,8 +16002,7 @@ MonoBehaviour:
   MuzzelFlash_ParticleSystem: {fileID: 8389967989692617487}
   BulletShells_ParticleSystem: {fileID: 4381670106395042594}
   Traser_ParticleSystem: {fileID: 4977658223434495405}
-  targetTag: Enemy
-  targetType: 1
+  targetType: 0
 --- !u!205 &956118172648233052
 LODGroup:
   m_ObjectHideFlags: 0
@@ -16070,7 +16069,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &3520271277117867756
+--- !u!114 &-3904096996074198781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16079,9 +16078,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6791573989743330687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c8ad21ee6fe904dbd55f4031e3198a, type: 3}
+  m_Script: {fileID: 11500000, guid: 14ad5000d0526b944b8fb738d2070f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 2551483968928519674}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &6819016504208318236
 GameObject:
   m_ObjectHideFlags: 0
