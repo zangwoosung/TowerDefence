@@ -61,10 +61,7 @@ public class BaseItem : MonoBehaviour
     {
 
     }
-    public void Prefare(GameObject[] targets)
-    {
-
-    }
+    
     public void Begin()
     {
         MuzzelFlash_ParticleSystem.gameObject.SetActive(true);
@@ -79,7 +76,7 @@ public class BaseItem : MonoBehaviour
         GameObject[] targets = GameObject.FindGameObjectsWithTag(targetType.ToString());
         if (targets.Length == 0)
         {
-            
+           
             NearTarget =null;
             return;
         }
@@ -113,15 +110,15 @@ public class BaseItem : MonoBehaviour
     {
         if (NearTarget == null)
         {
-
             return;
-
         }
         gunbarrel.LookAt(NearTarget);
     }
 
     public virtual void CheckHP(int damage)
     {
+        //BaseItem.OnGameOverEvent?.Invoke(ItemType.Turret);
+
 
     }
     public virtual void Explode()
