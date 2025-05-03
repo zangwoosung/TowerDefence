@@ -17,9 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UIManager mainUI;
     Enemy[] enemies = new Enemy[5];
     Turret[] turrets = new Turret[5];
-
-
-    
+        
 
 
     int TotalEnemy;
@@ -29,6 +27,7 @@ public class GameManager : MonoBehaviour
         BaseItem.OnGameOverEvent += BaseItem_OnGameOverEvent;
         Turret.StaticDestroyEvent += Turret_StaticDestroyEvent;
         Enemy.OnDestroyEnemy += Enemy_OnDestroyEnemy;
+        
         mainUI.OnGameEndEvent += UIManager_OnGameEndEvent;
         mainUI.OnGameAgainEvent += UIManager_OnGameAgainEvent;
 
@@ -43,32 +42,41 @@ public class GameManager : MonoBehaviour
 
     private void BaseItem_OnGameOverEvent(ItemType obj)
     {
-        //CeaseFire();
-        //switch (obj)
-        //{
-        //    case ItemType.Enemy:
-        //        mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
-        //        break;
-        //    case ItemType.Turret:
-        //        mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
-        //        break;
-        //    default:
-        //        break;
-        //}
-       
+        CeaseFire();
+        switch (obj)
+        {
+            case ItemType.Enemy:
+                mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
+                break;
+            case ItemType.Turret:
+                mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
+                break;
+            default:
+                break;
+        }
+
     }
 
     private void Enemy_OnDestroyEnemy()
     {
         TotalEnemy--;
+
         mainUI.TotalEnemy = TotalEnemy;
-        
+        if (TotalEnemy == 0)
+        {
+            mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
+        }
+
     }
 
     private void Turret_StaticDestroyEvent()
     {
         TotalTurret--;
-        mainUI.TotalTurret = TotalTurret;        
+        mainUI.TotalTurret = TotalTurret;
+        if (TotalTurret == 0)
+        {
+            mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
+        }
     }
 
     private void UIManager_OnGameAgainEvent()
@@ -95,13 +103,9 @@ public class GameManager : MonoBehaviour
             GameObject obj = battleField.transform.GetChild(i).gameObject;
             if(obj.GetComponent<BaseItem>() != null)
             {
-                obj.GetComponent<BaseItem>().CeaseFire();
-                
-            }
-            
+                obj.GetComponent<BaseItem>().CeaseFire();                
+            }            
         }
-
-
     }
 
 

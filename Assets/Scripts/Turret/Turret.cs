@@ -14,6 +14,7 @@ public class Turret : BaseItem
         HP = HP - damage;
         if (HP <= 0)
         {
+            base.CheckHP(damage);
             StaticDestroyEvent?.Invoke();
             StaticDestroyEventPos?.Invoke(transform.position);
             gameObject.SetActive(false);
