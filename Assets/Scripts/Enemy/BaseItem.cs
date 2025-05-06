@@ -10,6 +10,8 @@ public enum ItemType
 }
 public class BaseItem : MonoBehaviour
 {
+
+    public static event Action<ItemType> OnGameOverEvent;
     public TextMeshProUGUI ATKtxt;
     public TextMeshProUGUI HPtxt;
     public Transform gunbarrel;
@@ -52,16 +54,8 @@ public class BaseItem : MonoBehaviour
     {
         CeaseFire();
     }
-    private void Start()
-    {
+   
 
-
-    }
-    public void Initialize()
-    {
-
-    }
-    
     public void Begin()
     {
         MuzzelFlash_ParticleSystem.gameObject.SetActive(true);
@@ -70,21 +64,19 @@ public class BaseItem : MonoBehaviour
 
         OpenFire();
     }
-    public static event Action<ItemType> OnGameOverEvent;
+    
     void OpenFire()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag(targetType.ToString());
         if (targets.Length == 0)
-        {
-           
-            NearTarget =null;
+        {           
+            NearTarget = null;
             return;
         }
 
-
         NearTarget = NearestTarget.FindNearestTarget(gameObject, targets).transform;
         gunbarrel.LookAt(NearTarget);
-        
+
 
         MuzzelFlash_ParticleSystem.Play();
         BulletShells_ParticleSystem.Play();
