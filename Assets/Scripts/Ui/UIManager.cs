@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowWinLosePanel(string winner)
     {
+        _StarBtn.gameObject.SetActive(false);
         _winnerIs.text = winner;
         _panelWinLose.gameObject.SetActive(true);
     }
@@ -59,7 +60,8 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
     public void Again()
-    {       
+    {
+        _StarBtn.gameObject.SetActive(false);
         _panelWinLose.gameObject.SetActive(false);
         OnGameAgainEvent?.Invoke();
     }

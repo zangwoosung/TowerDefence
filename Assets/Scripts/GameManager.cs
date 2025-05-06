@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     int TotalTurret;
     void Start()
     {
-        BaseItem.OnGameOverEvent += BaseItem_OnGameOverEvent;
+     
         Turret.StaticDestroyEvent += Turret_StaticDestroyEvent;
         Enemy.OnDestroyEnemy += Enemy_OnDestroyEnemy;
         
@@ -32,30 +32,11 @@ public class GameManager : MonoBehaviour
         mainUI.OnGameAgainEvent += UIManager_OnGameAgainEvent;
 
 
-        TotalEnemy = 5;
-        TotalTurret = 5;
-        mainUI.TotalEnemy = TotalEnemy;
-        mainUI.TotalTurret = TotalTurret;        
         StartCoroutine(Initialize());
         
     }
 
-    private void BaseItem_OnGameOverEvent(ItemType obj)
-    {
-        CeaseFire();
-        switch (obj)
-        {
-            case ItemType.Enemy:
-                mainUI.ShowWinLosePanel(ItemType.Turret.ToString());
-                break;
-            case ItemType.Turret:
-                mainUI.ShowWinLosePanel(ItemType.Enemy.ToString());
-                break;
-            default:
-                break;
-        }
-
-    }
+   
 
     private void Enemy_OnDestroyEnemy()
     {
@@ -117,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Initialize()
     {
+        mainUI.ShowStartBtn(false);
         TotalEnemy = 5;
         TotalTurret = 5;
         mainUI.TotalEnemy = TotalEnemy;
@@ -163,6 +145,7 @@ public class GameManager : MonoBehaviour
         }
 
         mainUI.ShowStartBtn(true);
+        
     }
 
     public void StartGame()
@@ -172,5 +155,6 @@ public class GameManager : MonoBehaviour
             turrets[i].Begin();
             enemies[i].Begin();
         }
+       
     }
 }
